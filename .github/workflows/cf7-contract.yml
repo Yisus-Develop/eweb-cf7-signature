@@ -1,0 +1,64 @@
+name: Contact Form 7 contract
+
+# Weekly early warning: if an upcoming Contact Form 7 release changes any symbol
+# or hook signature this plugin depends on, the job fails and GitHub notifies.
+# Run it manually right before updating Contact Form 7 on a production site.
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    name: Latest Contact Form 7
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+
+      - name: Download the latest Contact Form 7 release
+        run: |
+          set -euo pipefail
+          curl -sSL -o /tmp/cf7.zip https://downloads.wordpress.org/plugin/contact-form-7.zip
+          unzip -q /tmp/cf7.zip -d /tmp/cf7
+          grep -m1 -E '^\s*\*\s*Version:' /tmp/cf7/contact-form-7/wp-contact-form-7.php
+
+      - name: Download the Contact Form 7 development trunk
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          curl -sSL -o /tmp/cf7-trunk.zip https://codeload.github.com/rocklobster-in/contact-form-7/zip/refs/heads/trunk
+          unzip -q /tmp/cf7-trunk.zip -d /tmp/cf7-trunk
+
+      - name: Verify the contract against the released version
+        run: php tests/check-cf7-contract.php /tmp/cf7/contact-form-7
+
+      - name: Verify the contract against the development trunk
+        continue-on-error: true
+        run: php tests/check-cf7-contract.php /tmp/cf7-trunk/contact-form-7-trunk
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo '## Contact Form 7 contract'
+            echo ''
+            echo 'A failed step above means Contact Form 7 changed something this plugin relies on.'
+            echo 'Run the same check locally, then decide whether the plugin needs a fix or only a'
+            echo '`TESTED_CF7_VERSION` bump:'
+            echo ''
+            echo '```bash'
+            echo 'php tests/check-cf7-contract.php /path/to/contact-form-7'
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

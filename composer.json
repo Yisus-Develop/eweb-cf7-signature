@@ -1,0 +1,47 @@
+{
+	"name": "yisus-develop/eweb-cf7-signature",
+	"description": "Digital signature (HTML5 canvas) field for Contact Form 7 with sandboxed PNG storage, inline e-mail images and a native mPDF bridge.",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"wordpress",
+		"wordpress-plugin",
+		"contact-form-7",
+		"signature",
+		"canvas"
+	],
+	"homepage": "https://github.com/Yisus-Develop/eweb-cf7-signature",
+	"support": {
+		"issues": "https://github.com/Yisus-Develop/eweb-cf7-signature/issues",
+		"source": "https://github.com/Yisus-Develop/eweb-cf7-signature"
+	},
+	"require": {
+		"php": ">=8.1"
+	},
+	"require-dev": {
+		"wp-coding-standards/wpcs": "^3.0",
+		"phpcsstandards/phpcsextra": "^1.0",
+		"phpcsstandards/phpcsutils": "^1.0",
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.0"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		},
+		"sort-packages": true
+	},
+	"scripts": {
+		"lint": "phpcs --standard=phpcs.xml.dist",
+		"lint:summary": "phpcs --standard=phpcs.xml.dist --report=summary",
+		"lint:fix": "phpcbf --standard=phpcs.xml.dist",
+		"test": "@php tests/run-tests.php",
+		"test:contract": "@php tests/check-cf7-contract.php"
+	},
+	"scripts-descriptions": {
+		"lint": "Check the coding standards (WordPress-Core, Extra and Docs).",
+		"lint:summary": "Check the coding standards and print a per-file summary.",
+		"lint:fix": "Fix the coding standards violations that can be fixed automatically.",
+		"test": "Run the smoke test suite (no WordPress required).",
+		"test:contract": "Verify the Contact Form 7 contract against an installed copy."
+	}
+}

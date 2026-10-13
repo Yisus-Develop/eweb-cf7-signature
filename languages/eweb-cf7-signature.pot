@@ -1,0 +1,309 @@
+# Copyright (C) 2026 enlaweb
+# This file is distributed under the GPL-2.0-or-later license.
+msgid ""
+msgstr ""
+"Project-Id-Version: EWEB CF7 Signature 1.0.0\n"
+"Report-Msgid-Bugs-To: https://enlaweb.agency/\n"
+"POT-Creation-Date: 2026-10-13 13:05+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: enlaweb <hello@enlaweb.agency>\n"
+"X-Generator: eweb-cf7-signature pot builder\n"
+"X-Domain: eweb-cf7-signature\n"
+
+#: includes/class-signature-handler.php:369 includes/class-signature-handler.php:481
+msgid "Canvas height (px)"
+msgstr ""
+
+#: includes/class-signature-handler.php:361 includes/class-signature-handler.php:473
+msgid "Canvas width (px)"
+msgstr ""
+
+#: includes/class-signature-handler.php:444
+msgid "Class"
+msgstr ""
+
+#: includes/class-signature-handler.php:246
+msgid "Clear"
+msgstr ""
+
+#: includes/class-signature-handler.php:943
+msgid "Clear the signature"
+msgstr ""
+
+#: includes/class-compat.php:278
+msgid "Contact Form 7 %1$s is newer than the tested version %2$s. Everything keeps working; run the contract check if you notice anything unusual."
+msgstr ""
+
+#: includes/class-compat.php:266
+msgid "Contact Form 7 %1$s is older than the tested version %2$s. Some features may be limited."
+msgstr ""
+
+#: includes/class-mail-integrator.php:281 includes/class-pdf-bridge.php:144
+msgid "Digital signature"
+msgstr ""
+
+#: includes/class-compat.php:333
+msgid "EWEB CF7 Signature compatibility notice."
+msgstr ""
+
+#: includes/class-compat.php:332
+msgid "EWEB CF7 Signature detected an incompatible Contact Form 7 update."
+msgstr ""
+
+#: eweb-cf7-signature.php:133
+msgid "EWEB CF7 Signature needs Contact Form 7 to be installed and activated."
+msgstr ""
+
+#: eweb-cf7-signature.php:39
+msgid "EWEB CF7 Signature requires PHP %s or higher and has been disabled."
+msgstr ""
+
+#: includes/class-signature-handler.php:1415
+msgid "Embedded image (CID)"
+msgstr ""
+
+#: includes/class-signature-handler.php:424
+msgid "Field type"
+msgstr ""
+
+#: includes/class-eweb-github-updater.php:450
+msgid "Full changelog on GitHub"
+msgstr ""
+
+#: includes/class-signature-handler.php:309 includes/class-signature-handler.php:499
+msgid "Generates a form-tag for an HTML5 signature pad drawn with the mouse, a finger or a stylus."
+msgstr ""
+
+#: includes/class-signature-handler.php:379 includes/class-signature-handler.php:491
+msgid "Hint under the pad"
+msgstr ""
+
+#: includes/class-signature-handler.php:437
+msgid "Id"
+msgstr ""
+
+#: includes/class-signature-handler.php:1423
+msgid "In the e-mail body"
+msgstr ""
+
+#: includes/class-signature-handler.php:1416
+msgid "Inline data URI (Base64)"
+msgstr ""
+
+#: includes/class-signature-handler.php:501
+msgid "Insert Tag"
+msgstr ""
+
+#: includes/class-compat.php:379
+msgid "Installed Contact Form 7:"
+msgstr ""
+
+#: includes/class-signature-handler.php:275
+msgid "JavaScript is required to draw and submit your signature."
+msgstr ""
+
+#: includes/class-signature-handler.php:432
+msgid "Name"
+msgstr ""
+
+#: includes/class-signature-handler.php:1417
+msgid "Nothing in the body"
+msgstr ""
+
+#: includes/class-signature-handler.php:346 includes/class-signature-handler.php:458
+msgid "Pad background"
+msgstr ""
+
+#: includes/class-signature-handler.php:339 includes/class-signature-handler.php:451
+msgid "Pen colour"
+msgstr ""
+
+#: includes/class-eweb-github-updater.php:301
+msgid "Professional plugin distributed from GitHub as part of the EWEB Suite."
+msgstr ""
+
+#: includes/class-signature-handler.php:1414
+msgid "Public URL (recommended)"
+msgstr ""
+
+#: includes/class-compat.php:360
+msgid "Running in degraded mode:"
+msgstr ""
+
+#: includes/class-signature-handler.php:244
+msgid "Sign here"
+msgstr ""
+
+#: includes/class-signature-handler.php:179 includes/class-signature-handler.php:305 includes/class-signature-handler.php:498
+msgid "Signature field"
+msgstr ""
+
+#: includes/class-signature-handler.php:324 includes/class-signature-handler.php:425 includes/class-signature-handler.php:942
+msgid "Signature pad"
+msgstr ""
+
+#: includes/class-signature-handler.php:229
+msgid "Signature pad: draw your signature with the mouse, a finger or a stylus."
+msgstr ""
+
+#: includes/class-signature-handler.php:353 includes/class-signature-handler.php:465
+msgid "Stroke width"
+msgstr ""
+
+#: includes/class-signature-handler.php:665
+msgid "The signature could not be processed. Please sign again."
+msgstr ""
+
+#: includes/class-signature-handler.php:677
+msgid "The signature could not be saved on the server. Please sign again."
+msgstr ""
+
+#: includes/class-signature-handler.php:426
+msgid "This is a required field."
+msgstr ""
+
+#: includes/class-signature-handler.php:504
+msgid "To use the value input through this field in a mail field, you need to insert the corresponding mail-tag (%s) into the field on the Mail tab."
+msgstr ""
+
+#: includes/class-compat.php:353
+msgid "Until this is resolved, signature fields may not submit, store or e-mail correctly. Revert Contact Form 7 or report the issue with the list above."
+msgstr ""
+
+#: includes/class-eweb-github-updater.php:305
+msgid "Upload the plugin folder to /wp-content/plugins/ and activate it from the Plugins screen."
+msgstr ""
+
+#: includes/class-eweb-github-updater.php:443
+msgid "Version:"
+msgstr ""
+
+#: includes/class-compat.php:98
+msgid "a plain HTML panel with the same fields is rendered instead"
+msgstr ""
+
+#: includes/class-compat.php:61
+msgid "custom CSS classes cannot be applied"
+msgstr ""
+
+#: includes/class-compat.php:62
+msgid "custom element ids cannot be applied"
+msgstr ""
+
+#: includes/class-compat.php:109
+msgid "external consumers (PDF generators) may receive the public URL"
+msgstr ""
+
+#: includes/class-compat.php:59
+msgid "flag options cannot be read"
+msgstr ""
+
+#: includes/class-compat.php:58
+msgid "form-tag options cannot be read"
+msgstr ""
+
+#: includes/class-compat.php:106
+msgid "identical for plain field names, differs only for [_raw_*] variants"
+msgstr ""
+
+#: includes/class-compat.php:65
+msgid "invalid signatures cannot be rejected"
+msgstr ""
+
+#: includes/class-compat.php:105
+msgid "mail-tags are matched by tag name instead of field name"
+msgstr ""
+
+#: includes/class-compat.php:67
+msgid "mail-tags cannot be matched to signatures"
+msgstr ""
+
+#: includes/class-compat.php:68
+msgid "per-field mail options cannot be read"
+msgstr ""
+
+#: includes/class-compat.php:114
+msgid "raw PNG magic bytes are still verified"
+msgstr ""
+
+#: includes/class-compat.php:60 includes/class-compat.php:81
+msgid "required signatures cannot be enforced"
+msgstr ""
+
+#: includes/class-compat.php:45 includes/class-compat.php:46
+msgid "required-field errors cannot be displayed"
+msgstr ""
+
+#: includes/class-compat.php:101
+msgid "server-side validation relies on the legacy validate filter only"
+msgstr ""
+
+#: includes/class-compat.php:64
+msgid "stored files lose their form id"
+msgstr ""
+
+#: includes/class-compat.php:113
+msgid "the PNG MIME type cannot be double-checked"
+msgstr ""
+
+#: includes/class-compat.php:42
+msgid "the [signature] form-tag cannot be registered"
+msgstr ""
+
+#: includes/class-compat.php:97
+msgid "the form-tag generator uses the legacy panel"
+msgstr ""
+
+#: includes/class-compat.php:63
+msgid "the form-tag options cannot be resolved"
+msgstr ""
+
+#: includes/class-compat.php:79
+msgid "the plugin cannot hook into the submission"
+msgstr ""
+
+#: includes/class-compat.php:82
+msgid "the signature cannot be placed in the e-mail body"
+msgstr ""
+
+#: includes/class-compat.php:47
+msgid "the signature cannot be tied to its form"
+msgstr ""
+
+#: includes/class-compat.php:83
+msgid "the signature falls back to its public URL"
+msgstr ""
+
+#: includes/class-compat.php:80
+msgid "the signature field cannot be rendered"
+msgstr ""
+
+#: includes/class-compat.php:44
+msgid "the signature field loses Contact Form 7 styling"
+msgstr ""
+
+#: includes/class-compat.php:43
+msgid "the signature pad cannot be rendered safely"
+msgstr ""
+
+#: includes/class-compat.php:66 includes/class-compat.php:84
+msgid "the submitted data cannot be inspected"
+msgstr ""
+
+#: includes/class-compat.php:110
+msgid "the wpcf7pdf_text filter still swaps the URL for a local path"
+msgstr ""
+
+#: includes/class-compat.php:380
+msgid "unknown"
+msgstr ""
+
+#: includes/class-compat.php:381
+msgid "verified against:"
+msgstr ""
+
+#: includes/class-compat.php:102
+msgid "wpcf7_validate_signature still enforces required fields"
+msgstr ""

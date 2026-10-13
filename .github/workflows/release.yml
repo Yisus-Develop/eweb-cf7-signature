@@ -1,0 +1,72 @@
+name: Release
+
+# Publishes a GitHub Release with the installable ZIP attached.
+# The ZIP is built with `git archive`, so `.gitattributes` keeps every
+# development file (tests, CI, composer, phpcs) out of the package and the
+# top-level folder is exactly the plugin slug.
+
+on:
+  push:
+    tags:
+      - '*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          coverage: none
+
+      - name: Lint every PHP file
+        run: |
+          status=0
+          while IFS= read -r -d '' file; do
+            if ! out=$(php -l "$file" 2>&1); then
+              printf '%s\n' "$out"
+              status=1
+            fi
+          done < <(find . -name '*.php' -not -path './vendor/*' -print0)
+          exit $status
+
+      - name: Smoke tests
+        run: php tests/run-tests.php
+
+      - name: Verify version alignment with the tag
+        run: |
+          set -euo pipefail
+          tag="${GITHUB_REF_NAME#v}"
+          header=$(grep -m1 -E '^[[:space:]]*\*[[:space:]]*Version:' eweb-cf7-signature.php | sed -E 's/.*Version:[[:space:]]*//' | tr -d '[:space:]')
+          stable=$(grep -m1 -E '^Stable tag:' readme.txt | sed -E 's/Stable tag:[[:space:]]*//' | tr -d '[:space:]')
+          pot=$(grep -m1 -oE 'Project-Id-Version:.* [0-9]+\.[0-9]+\.[0-9]+' languages/eweb-cf7-signature.pot | grep -oE '[0-9]+\.[0-9]+\.[0-9]+$')
+          echo "tag=$tag | main file=$header | readme.txt=$stable | .pot=$pot"
+          test "$tag" = "$header"
+          test "$tag" = "$stable"
+          test "$tag" = "$pot"
+
+      - name: Build the release ZIP
+        run: |
+          set -euo pipefail
+          name="eweb-cf7-signature-${GITHUB_REF_NAME#v}.zip"
+          git archive --format=zip --prefix=eweb-cf7-signature/ -o "$name" HEAD
+          echo "### Package contents" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          unzip -l "$name" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish the release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: eweb-cf7-signature-*.zip
+          generate_release_notes: true
+          fail_on_unmatched_files: true

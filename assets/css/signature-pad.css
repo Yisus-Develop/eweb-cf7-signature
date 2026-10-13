@@ -1,0 +1,206 @@
+/**
+ * EWEB CF7 Signature - front-end styles.
+ *
+ * Everything is namespaced under `.eweb-sig` and driven by custom properties,
+ * so a theme can restyle the pad without touching this file.
+ *
+ * @package EWEB_CF7_Signature
+ */
+
+.eweb-sig {
+	--eweb-sig-border: #d1d5db;
+	--eweb-sig-muted: #6b7280;
+	--eweb-sig-focus: #2563eb;
+	--eweb-sig-radius: 12px;
+	--eweb-sig-gap: 10px;
+	--eweb-sig-bg: #ffffff;
+	--eweb-sig-pen: #111827;
+
+	display: flex;
+	flex-direction: column;
+	gap: var(--eweb-sig-gap);
+	width: 100%;
+	max-width: 100%;
+	margin: 0;
+}
+
+.eweb-sig__frame {
+	position: relative;
+	width: 100%;
+	aspect-ratio: var(--eweb-sig-ratio, 2.5);
+	border: 1px solid var(--eweb-sig-border);
+	border-radius: var(--eweb-sig-radius);
+	background-color: var(--eweb-sig-bg);
+	overflow: hidden;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.eweb-sig__frame:focus-within {
+	border-color: var(--eweb-sig-focus);
+	box-shadow: 0 0 0 3px rgb(37 99 235 / 20%);
+}
+
+.eweb-sig__canvas {
+	display: block;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	border: 0;
+	padding: 0;
+	background: transparent;
+	cursor: crosshair;
+	touch-action: none;
+	overscroll-behavior: none;
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-touch-callout: none;
+}
+
+.eweb-sig__empty {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+	color: var(--eweb-sig-muted);
+	font-size: 0.9375rem;
+	line-height: 1.2;
+	letter-spacing: 0.01em;
+	opacity: 1;
+	pointer-events: none;
+	transition: opacity 0.2s ease;
+}
+
+.eweb-sig:not(.is-empty) .eweb-sig__empty {
+	opacity: 0;
+}
+
+.eweb-sig__actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--eweb-sig-gap);
+}
+
+.eweb-sig__clear {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin: 0;
+	padding: 7px 14px;
+	border: 1px solid var(--eweb-sig-border);
+	border-radius: 8px;
+	background-color: transparent;
+	color: inherit;
+	font: inherit;
+	font-size: 0.875rem;
+	line-height: 1.2;
+	cursor: pointer;
+	transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.eweb-sig__clear:hover {
+	border-color: var(--eweb-sig-muted);
+	background-color: rgb(17 24 39 / 4%);
+}
+
+.eweb-sig__clear:focus-visible {
+	outline: 2px solid var(--eweb-sig-focus);
+	outline-offset: 2px;
+}
+
+.eweb-sig__hint,
+.eweb-sig__noscript {
+	margin: 0;
+	color: var(--eweb-sig-muted);
+	font-size: 0.8125rem;
+	line-height: 1.35;
+}
+
+.eweb-sig__noscript {
+	padding: 8px 10px;
+	border: 1px dashed var(--eweb-sig-border);
+	border-radius: 8px;
+}
+
+/* The hidden input is never visible: it only carries the payload. */
+.eweb-sig__value {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	border: 0;
+	white-space: nowrap;
+}
+
+.eweb-sig .wpcf7-form-control-wrap {
+	display: block;
+}
+
+.eweb-sig .wpcf7-not-valid-tip {
+	color: #b32d2e;
+	font-size: 0.875em;
+}
+
+/* Proportional fallback for engines without `aspect-ratio` support. */
+@supports not (aspect-ratio: 1 / 1) {
+	.eweb-sig__frame {
+		height: 0;
+		padding-bottom: calc(100% / var(--eweb-sig-ratio, 2.5));
+	}
+
+	.eweb-sig__canvas {
+		position: absolute;
+		inset: 0;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.eweb-sig {
+		--eweb-sig-border: #4b5563;
+		--eweb-sig-muted: #9ca3af;
+	}
+
+	.eweb-sig__clear:hover {
+		background-color: rgb(255 255 255 / 8%);
+	}
+}
+
+@media (forced-colors: active) {
+	.eweb-sig__frame {
+		border-color: CanvasText;
+	}
+
+	.eweb-sig__clear {
+		border-color: ButtonBorder;
+		color: ButtonText;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.eweb-sig__frame,
+	.eweb-sig__empty,
+	.eweb-sig__clear {
+		transition: none;
+	}
+}
+
+@media (max-width: 480px) {
+	.eweb-sig {
+		--eweb-sig-gap: 8px;
+	}
+}
+
+@media print {
+	.eweb-sig__actions,
+	.eweb-sig__empty,
+	.eweb-sig__noscript {
+		display: none;
+	}
+}

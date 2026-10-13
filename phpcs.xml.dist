@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<ruleset name="EWEB CF7 Signature">
+	<description>Coding standards of the EWEB Suite (WordPress-Core, WordPress-Extra and WordPress-Docs), enforced for every pull request.</description>
+
+	<file>.</file>
+
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/tests/*</exclude-pattern>
+	<exclude-pattern>/languages/*</exclude-pattern>
+	<exclude-pattern>/assets/*</exclude-pattern>
+	<exclude-pattern>/.github/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="basepath" value="."/>
+	<arg name="colors"/>
+	<arg value="sp"/>
+
+	<rule ref="WordPress-Core"/>
+	<rule ref="WordPress-Extra"/>
+	<rule ref="WordPress-Docs"/>
+
+	<config name="minimum_supported_wp_version" value="6.4"/>
+	<config name="testVersion" value="8.1-"/>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="eweb_cf7_sig"/>
+				<element value="EWEB_CF7_Sig"/>
+				<element value="eweb_cf7_signature"/>
+				<element value="EWEB_CF7_Signature"/>
+				<element value="EWEB_GitHub"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="eweb-cf7-signature"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!--
+		The file names of this plugin are part of its documented architecture
+		(`class-signature-handler.php`, `class-mail-integrator.php`,
+		`class-pdf-bridge.php`, `class-compat.php`) and are referenced by the test
+		suite and the README, so the class-name-to-file-name convention is
+		deliberately not enforced.
+	-->
+	<rule ref="WordPress.Files.FileName.InvalidClassFileName">
+		<severity>0</severity>
+	</rule>
+</ruleset>
