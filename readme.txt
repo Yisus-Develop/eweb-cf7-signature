@@ -1,10 +1,10 @@
 === EWEB CF7 Signature ===
-Contributors: enlaweb
+Contributors: yisus-develop
 Tags: contact form 7, signature, digital signature, canvas, e-signature
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -109,6 +109,10 @@ hook the plugin relies on.
 
 == Changelog ==
 
+= 1.0.1 =
+* Corrected the project identity: `Plugin URI` and `Author URI` now point to the real
+  project home, and the translation template is regenerated without development files.
+
 = 1.0.0 =
 * Initial release.
 * `[signature]` and `[signature*]` form-tags with a modern responsive canvas pad.
@@ -123,6 +127,9 @@ hook the plugin relies on.
 * Optional retention cron, 12 filters, 1 action, full PHP and JavaScript APIs.
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+Project identity correction. Update if you display plugin metadata.
 
 = 1.0.0 =
 First public release.

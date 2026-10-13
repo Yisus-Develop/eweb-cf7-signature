@@ -576,6 +576,10 @@ test suite.
 
 ## Changelog
 
+### 1.0.1
+- Corrected the project identity: `Plugin URI` and `Author URI` now point to the real
+  project home, and the translation template is regenerated without development files.
+
 ### 1.0.0
 - Initial release under the EWEB Elite standard.
 - `[signature]` / `[signature*]` form-tags with a modern, responsive ES6+ canvas pad.
@@ -598,7 +602,7 @@ test suite.
 
 GPL-2.0-or-later — see <https://www.gnu.org/licenses/gpl-2.0.html>.
 
-Built by [enlaweb](https://enlaweb.agency/) · *Elite / Vault Factory* standard.
+Built by [enlaweb](https://enlaweb.co/) · *Elite / Vault Factory* standard.
 
 The responsive canvas re-rendering approach is inspired by the public algorithm of
 [szimek/signature_pad](https://github.com/szimek/signature_pad) (MIT); the implementation

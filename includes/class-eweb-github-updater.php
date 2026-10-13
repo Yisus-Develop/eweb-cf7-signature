@@ -291,7 +291,7 @@ if ( ! class_exists( 'EWEB_GitHub_Updater' ) ) {
 			$fallback = array(
 				'name'         => $this->github_repo,
 				'author'       => 'Yisus Develop',
-				'author_uri'   => 'https://enlaweb.agency/',
+				'author_uri'   => 'https://github.com/Yisus-Develop',
 				'requires'     => '6.4',
 				'tested'       => '',
 				'requires_php' => '8.1',
